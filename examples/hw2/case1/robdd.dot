@@ -1,0 +1,18 @@
+digraph ROBDD {
+   {rank=same 1}
+   {rank=same 2}
+   {rank=same 7}
+
+   0 [label=0, shape=box]
+   1 [label="a"]
+   2 [label="b"]
+   7 [label="c"]
+   8 [label=1, shape=box]
+
+   1 -> 2 [label="0", style=dotted]
+   1 -> 7 [label="1", style=solid]
+   2 -> 0 [label="0", style=dotted]
+   2 -> 7 [label="1", style=solid]
+   7 -> 0 [label="0", style=dotted]
+   7 -> 8 [label="1", style=solid]
+}
