@@ -33,8 +33,7 @@ unique_ptr<LogicRuleSet> PlaFileHandler::read(istream& stream)
             continue; // Ignore empty line
         }
 
-        if (pCurrent < pCount) // .p section
-        {
+        if (token[0] != '.' && pCurrent < pCount) { // .p section
             inputStr = token;
             if (!(iss >> outputStr) || inputStr.length() != inputCount || outputStr.length() != outputCount) {
                 throw PlaFileFormatException(lineNumber, ".p", pCurrent);

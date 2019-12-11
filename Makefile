@@ -3,7 +3,7 @@ CXXFLAGS :=
 LDFLAGS  := 
 OBJ_DIR  := objects
 BIN_DIR  := bin
-TARGET   := mini
+TARGET   := smin
 INCLUDE  := -Iinclude/
 SRC      := $(wildcard src/*.cpp)
 

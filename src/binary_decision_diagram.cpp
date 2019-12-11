@@ -179,7 +179,7 @@ void BinaryDecisionDiagram::exportDotFile(string fileName, bool doImageOutput)
     // Output image
     if (doImageOutput) {
         string command = "dot -T png " + fileName + " > " + fileName + ".png";
-        system(command.c_str());
+        int rtn = system(command.c_str());
     }
 }
 

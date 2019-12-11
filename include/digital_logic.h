@@ -158,6 +158,36 @@ typedef struct
 } LogicRuleSet;
 
 /**
+ * A state transition
+ */
+typedef struct
+{
+    // Input of the rule
+    Input input;
+    // Ouput of the rule
+    Output output;
+    // From state
+    unsigned int from;
+    // To state
+    unsigned int to;
+} StateTransition;
+
+/**
+ * A set of state transitions
+ */
+typedef struct
+{
+    // Label of inputs in logic
+    std::vector<std::string> inputLabels;
+    // Label of outputs in logic
+    std::vector<std::string> outputLabels;
+    // Label of state in logic
+    std::vector<std::string> stateLabels;
+    // The rules in the set
+    std::vector<StateTransition> transitions;
+} StateTransitionSet;
+
+/**
  * Converts the input or output value into literal term
  * 
  * value: The input or output value to convert
