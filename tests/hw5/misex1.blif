@@ -1,0 +1,58 @@
+# Benchmark "misex1" written by ABC on Sun Dec  1 18:10:30 2019
+.model misex1
+.inputs dmpst3 dmpst2 dmpst1 dmpst0 xskip yskip page rmwB
+.outputs dmnst3B dmnst2B dmnst1B dmnst0B adctlp2B adctlp1B adctlp0B
+.gate NOT   a=dmpst1 O=new_n16_
+.gate NOT   a=dmpst0 O=new_n17_
+.gate NOT   a=dmpst2 O=new_n18_
+.gate NOR2  a=new_n18_ b=dmpst3 O=new_n19_
+.gate NOR2  a=new_n19_ b=new_n17_ O=new_n20_
+.gate NOT   a=dmpst3 O=new_n21_
+.gate NOR2  a=dmpst2 b=new_n21_ O=new_n22_
+.gate NOR2  a=new_n22_ b=dmpst0 O=new_n23_
+.gate NOR3  a=new_n23_ b=new_n20_ c=new_n16_ O=dmnst3B
+.gate NOR2  a=new_n17_ b=dmpst1 O=new_n25_
+.gate NAND2 a=new_n25_ b=new_n22_ O=new_n26_
+.gate NAND2 a=page b=new_n17_ O=new_n27_
+.gate NAND3 a=new_n27_ b=new_n16_ c=new_n18_ O=new_n28_
+.gate NOT   a=yskip O=new_n29_
+.gate NOR2  a=dmpst0 b=new_n16_ O=new_n30_
+.gate NAND2 a=new_n30_ b=new_n29_ O=new_n31_
+.gate NOR2  a=new_n16_ b=new_n18_ O=new_n32_
+.gate NOR2  a=new_n32_ b=dmpst3 O=new_n33_
+.gate NAND3 a=new_n33_ b=new_n31_ c=new_n28_ O=new_n34_
+.gate NAND2 a=new_n34_ b=new_n26_ O=dmnst2B
+.gate NAND2 a=xskip b=new_n16_ O=new_n36_
+.gate NAND2 a=new_n36_ b=new_n17_ O=new_n37_
+.gate NAND2 a=new_n37_ b=dmpst2 O=new_n38_
+.gate NAND2 a=page b=new_n16_ O=new_n39_
+.gate NOR2  a=dmpst0 b=dmpst2 O=new_n40_
+.gate NAND2 a=yskip b=dmpst1 O=new_n41_
+.gate NAND3 a=new_n41_ b=new_n40_ c=new_n39_ O=new_n42_
+.gate NAND2 a=new_n42_ b=new_n38_ O=new_n43_
+.gate NAND2 a=new_n43_ b=new_n21_ O=new_n44_
+.gate NAND2 a=new_n44_ b=new_n26_ O=dmnst1B
+.gate NAND2 a=yskip b=new_n21_ O=new_n46_
+.gate NAND3 a=new_n46_ b=new_n40_ c=dmpst1 O=new_n47_
+.gate NOT   a=xskip O=new_n48_
+.gate NAND2 a=new_n48_ b=new_n17_ O=new_n49_
+.gate NAND2 a=new_n49_ b=rmwB O=new_n50_
+.gate NAND3 a=new_n50_ b=new_n19_ c=new_n16_ O=new_n51_
+.gate NAND2 a=new_n51_ b=new_n47_ O=dmnst0B
+.gate NOR2  a=new_n30_ b=dmpst3 O=new_n53_
+.gate OR2   a=new_n30_ b=new_n25_ O=new_n54_
+.gate NAND2 a=new_n54_ b=new_n18_ O=new_n55_
+.gate XNOR2 a=new_n55_ b=new_n53_ O=adctlp2B
+.gate NAND2 a=new_n54_ b=dmpst3 O=new_n57_
+.gate NAND3 a=yskip b=dmpst1 c=new_n21_ O=new_n58_
+.gate NAND2 a=new_n58_ b=new_n57_ O=new_n59_
+.gate NAND2 a=new_n59_ b=new_n18_ O=new_n60_
+.gate NAND2 a=new_n53_ b=new_n28_ O=new_n61_
+.gate NAND2 a=new_n61_ b=new_n60_ O=adctlp1B
+.gate NAND2 a=new_n57_ b=new_n31_ O=new_n63_
+.gate NAND2 a=new_n63_ b=new_n18_ O=new_n64_
+.gate NAND2 a=new_n48_ b=new_n16_ O=new_n65_
+.gate NAND2 a=new_n65_ b=new_n17_ O=new_n66_
+.gate NAND2 a=new_n66_ b=new_n19_ O=new_n67_
+.gate NAND2 a=new_n67_ b=new_n64_ O=adctlp0B
+.end

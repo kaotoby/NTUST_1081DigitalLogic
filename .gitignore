@@ -27,6 +27,7 @@ bin/
 *.la
 *.a
 *.lib
+*.genlib
 
 # Executables
 *.exe

@@ -1,0 +1,54 @@
+# Benchmark "b12" written by ABC on Sun Dec  1 18:10:28 2019
+.model b12
+.inputs x00 x01 x02 x03 x04 x05 x06 x07 x08 x09 x10 x11 x12 x13 x14
+.outputs z0 z1 z2 z3 z4 z5 z6 z7 z8
+.gate NOR2  a=x03 b=x01 O=new_n25_
+.gate NOR2  a=new_n25_ b=x04 O=new_n26_
+.gate NAND2 a=x05 b=x01 O=new_n27_
+.gate NAND2 a=new_n27_ b=x02 O=new_n28_
+.gate NOR2  a=new_n28_ b=new_n26_ O=new_n29_
+.gate NOT   a=x00 O=new_n30_
+.gate NOT   a=x01 O=new_n31_
+.gate NOT   a=x03 O=new_n32_
+.gate NOR2  a=new_n32_ b=new_n31_ O=new_n33_
+.gate OR2   a=new_n33_ b=x02 O=new_n34_
+.gate NAND2 a=new_n34_ b=new_n30_ O=new_n35_
+.gate NOR2  a=new_n35_ b=new_n29_ O=z0
+.gate NOR2  a=x04 b=x03 O=new_n37_
+.gate NAND2 a=x06 b=x02 O=new_n38_
+.gate NOR2  a=new_n38_ b=new_n27_ O=new_n39_
+.gate NOR3  a=new_n39_ b=new_n37_ c=new_n35_ O=z1
+.gate NOR2  a=x08 b=x07 O=new_n41_
+.gate NOR2  a=new_n41_ b=new_n30_ O=new_n42_
+.gate NOR3  a=x10 b=x09 c=x07 O=new_n43_
+.gate NOR2  a=x10 b=x07 O=new_n44_
+.gate NOR2  a=new_n44_ b=new_n32_ O=new_n45_
+.gate NOR3  a=new_n45_ b=new_n43_ c=x01 O=new_n46_
+.gate NOR2  a=new_n46_ b=x02 O=new_n47_
+.gate NOR2  a=new_n47_ b=new_n42_ O=z2
+.gate AND2  a=x11 b=x07 O=new_n49_
+.gate NOT   a=x12 O=new_n50_
+.gate NOR2  a=new_n50_ b=x00 O=new_n51_
+.gate NOR2  a=new_n51_ b=new_n49_ O=z3
+.gate NOT   a=x09 O=new_n53_
+.gate NAND2 a=x08 b=x00 O=new_n54_
+.gate NOR3  a=new_n54_ b=new_n53_ c=x07 O=new_n55_
+.gate NOR2  a=new_n55_ b=new_n49_ O=z4
+.gate NOR2  a=x12 b=x00 O=new_n57_
+.gate NAND3 a=new_n57_ b=new_n44_ c=x13 O=z5
+.gate XOR2  a=x09 b=x03 O=new_n59_
+.gate OR2   a=x02 b=x01 O=new_n60_
+.gate NOR2  a=new_n60_ b=new_n59_ O=new_n61_
+.gate NAND2 a=x14 b=x02 O=new_n62_
+.gate NOR3  a=new_n62_ b=new_n31_ c=x00 O=new_n63_
+.gate NAND2 a=new_n54_ b=new_n44_ O=new_n64_
+.gate NOR3  a=new_n64_ b=new_n63_ c=new_n61_ O=z6
+.gate NOR2  a=new_n60_ b=new_n32_ O=new_n66_
+.gate NAND2 a=new_n66_ b=x09 O=new_n67_
+.gate OR2   a=new_n66_ b=x08 O=new_n68_
+.gate NAND3 a=new_n68_ b=new_n67_ c=new_n44_ O=z7
+.gate NAND2 a=new_n53_ b=x00 O=new_n70_
+.gate NAND3 a=new_n66_ b=new_n50_ c=x09 O=new_n71_
+.gate NAND2 a=new_n71_ b=new_n70_ O=new_n72_
+.gate NAND2 a=new_n72_ b=new_n44_ O=z8
+.end

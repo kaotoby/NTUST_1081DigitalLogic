@@ -188,6 +188,58 @@ typedef struct
 } StateTransitionSet;
 
 /**
+ * A simple logic gate with maximun 3 inputs and 1 output
+ */
+struct SimpleLogicGate
+{
+    enum GateType {
+        zero,
+        one,
+        NOT,
+        NAND2,
+        NOR2,
+        BUF,
+        NAND3,
+        NOR3,
+        AND2,
+        OR2,
+        AND3,
+        OR3,
+        XOR2,
+        XNOR2
+    };
+
+    // Type of logic gate
+    GateType type;
+    // First input of the gate (if any)
+    int a;
+    // Second input of the gate (if any)
+    int b;
+    // Third input of the gate (if any)
+    int c;
+    // Output of the gate
+    int O;
+    // Name of the gate
+    std::string name;
+};
+typedef struct SimpleLogicGate SimpleLogicGate;
+
+/**
+ * A simple logic gate with maximun 3 inputs and 1 output
+ */
+typedef struct
+{
+    // Name of the circit
+    std::string name;
+    // Label of inputs in logic
+    std::vector<std::string> inputLabels;
+    // Label of outputs in logic
+    std::vector<std::string> outputLabels;
+    // Gates in the circit
+    std::vector<SimpleLogicGate> gates;
+} SimpleLogicCircit;
+
+/**
  * Converts the input or output value into literal term
  * 
  * value: The input or output value to convert

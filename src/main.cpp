@@ -1,4 +1,10 @@
-#include "smin.h"
+/* ==========================================
+ * Project05: Logic Simulation
+ * Author: B10630221 Chang-Ting Kao
+ * Date: 2020/01/01
+ * ==========================================
+ */
+#include "lsim.h"
 #include <exception>
 #include <iostream>
 
@@ -11,7 +17,7 @@
 int main(int argc, char** argv)
 {
     try {
-        return Smin::main(argc, argv);
+        return Lsim::main(argc, argv);
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
         return 1;

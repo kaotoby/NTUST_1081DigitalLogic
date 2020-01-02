@@ -1,0 +1,51 @@
+# Benchmark "cordic" written by ABC on Sun Dec  1 18:10:29 2019
+.model cordic
+.inputs a6 a4 a3 a2 a5 v x0 x1 x2 x3 y0 y1 y2 y3 z0 z1 z2 ex0 ex1 ex2 ey0 \
+ ey1 ey2
+.outputs d dn
+.gate NOR3  a=a5 b=a4 c=a6 O=new_n26_
+.gate NOT   a=a4 O=new_n27_
+.gate NOT   a=v O=new_n28_
+.gate NAND2 a=new_n28_ b=a6 O=new_n29_
+.gate NOR2  a=new_n29_ b=new_n27_ O=new_n30_
+.gate NOR2  a=new_n30_ b=new_n26_ O=new_n31_
+.gate NOR2  a=new_n31_ b=a3 O=new_n32_
+.gate AND3  a=ey2 b=ey1 c=ey0 O=new_n33_
+.gate NOR3  a=ey2 b=ey1 c=ey0 O=new_n34_
+.gate NOR2  a=new_n34_ b=new_n33_ O=new_n35_
+.gate NAND2 a=ex1 b=ex0 O=new_n36_
+.gate AND2  a=new_n36_ b=ex2 O=new_n37_
+.gate NOR2  a=ex1 b=ex0 O=new_n38_
+.gate NOR2  a=new_n38_ b=ex2 O=new_n39_
+.gate NOR3  a=new_n39_ b=new_n37_ c=new_n35_ O=new_n40_
+.gate NAND2 a=a3 b=new_n27_ O=new_n41_
+.gate NOR2  a=new_n41_ b=new_n29_ O=new_n42_
+.gate AND2  a=new_n42_ b=new_n40_ O=new_n43_
+.gate NOR2  a=new_n43_ b=new_n32_ O=new_n44_
+.gate NOR2  a=new_n44_ b=a2 O=new_n45_
+.gate NOT   a=z0 O=new_n46_
+.gate NOR2  a=z1 b=new_n46_ O=new_n47_
+.gate OR2   a=new_n47_ b=z2 O=new_n48_
+.gate NAND2 a=z1 b=new_n46_ O=new_n49_
+.gate NAND2 a=new_n49_ b=z2 O=new_n50_
+.gate NAND2 a=new_n50_ b=new_n48_ O=new_n51_
+.gate XNOR2 a=x3 b=x2 O=new_n52_
+.gate XNOR2 a=x1 b=x0 O=new_n53_
+.gate XOR2  a=new_n53_ b=new_n52_ O=new_n54_
+.gate XNOR2 a=y3 b=y2 O=new_n55_
+.gate XNOR2 a=y1 b=y0 O=new_n56_
+.gate XOR2  a=new_n56_ b=new_n55_ O=new_n57_
+.gate NOR2  a=new_n57_ b=new_n54_ O=new_n58_
+.gate NAND3 a=new_n58_ b=new_n51_ c=new_n40_ O=new_n59_
+.gate NOR2  a=new_n59_ b=v O=new_n60_
+.gate NOR2  a=new_n60_ b=new_n45_ O=d
+.gate NOT   a=a2 O=new_n62_
+.gate NOT   a=a3 O=new_n63_
+.gate NAND2 a=new_n63_ b=a4 O=new_n64_
+.gate NAND2 a=new_n64_ b=new_n41_ O=new_n65_
+.gate NAND3 a=new_n65_ b=new_n62_ c=a6 O=new_n66_
+.gate NAND2 a=new_n66_ b=new_n59_ O=new_n67_
+.gate NAND2 a=new_n67_ b=new_n28_ O=new_n68_
+.gate NAND3 a=new_n26_ b=new_n62_ c=new_n63_ O=new_n69_
+.gate NAND2 a=new_n69_ b=new_n68_ O=dn
+.end

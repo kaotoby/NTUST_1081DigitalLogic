@@ -59,7 +59,8 @@
 			"bitset": "cpp",
 			"unordered_set": "cpp",
 			"set": "cpp",
-			"iterator": "cpp"
+			"iterator": "cpp",
+			"stack": "cpp"
 		},
 		"cSpell.words": [
 			"cluskey",

@@ -1,0 +1,90 @@
+# Benchmark "misex2" written by ABC on Sun Dec  1 18:10:30 2019
+.model misex2
+.inputs a b c d e f g h i j k l m n o p q r s t u v w x y
+.outputs z a1 b1 c1 d1 e1 f1 g1 h1 i1 j1 k1 l1 m1 n1 o1 p1 q1
+.gate NOT   a=j O=new_n44_
+.gate NOT   a=a O=new_n45_
+.gate NOT   a=b O=new_n46_
+.gate NAND2 a=new_n46_ b=new_n45_ O=new_n47_
+.gate NOR2  a=new_n47_ b=c O=new_n48_
+.gate NAND2 a=new_n48_ b=new_n44_ O=new_n49_
+.gate NOT   a=r O=new_n50_
+.gate NOR2  a=t b=s O=new_n51_
+.gate NAND3 a=new_n51_ b=new_n50_ c=k O=new_n52_
+.gate NOR2  a=new_n52_ b=new_n49_ O=z
+.gate NAND2 a=new_n48_ b=j O=new_n54_
+.gate NOR2  a=new_n54_ b=new_n52_ O=a1
+.gate NOT   a=k O=new_n56_
+.gate NAND3 a=new_n51_ b=new_n50_ c=new_n56_ O=new_n57_
+.gate NOR2  a=new_n57_ b=new_n54_ O=b1
+.gate NOT   a=t O=new_n59_
+.gate AND2  a=new_n59_ b=s O=new_n60_
+.gate NAND3 a=new_n60_ b=new_n48_ c=new_n50_ O=new_n61_
+.gate NAND3 a=m b=l c=c O=new_n62_
+.gate NAND2 a=b b=a O=new_n63_
+.gate NAND2 a=k b=new_n44_ O=new_n64_
+.gate OR3   a=new_n64_ b=new_n63_ c=new_n62_ O=new_n65_
+.gate NAND2 a=new_n65_ b=new_n61_ O=c1
+.gate NAND2 a=k b=c O=new_n67_
+.gate OR3   a=new_n67_ b=new_n63_ c=j O=new_n68_
+.gate NOR3  a=new_n68_ b=m c=l O=d1
+.gate NOR3  a=new_n67_ b=new_n63_ c=new_n44_ O=e1
+.gate NOT   a=l O=new_n71_
+.gate NOR2  a=new_n68_ b=new_n71_ O=f1
+.gate NOT   a=c O=new_n73_
+.gate NOR3  a=new_n64_ b=m c=new_n71_ O=new_n74_
+.gate NOR2  a=new_n74_ b=new_n46_ O=new_n75_
+.gate NOR3  a=new_n75_ b=new_n73_ c=new_n45_ O=g1
+.gate NOT   a=d O=new_n77_
+.gate NAND2 a=e b=new_n77_ O=new_n78_
+.gate NOR2  a=g b=f O=new_n79_
+.gate NOR2  a=i b=h O=new_n80_
+.gate NAND2 a=new_n80_ b=new_n79_ O=new_n81_
+.gate NOR2  a=new_n47_ b=new_n73_ O=q1
+.gate NOR3  a=new_n59_ b=s c=new_n50_ O=new_n83_
+.gate NAND2 a=new_n83_ b=q1 O=new_n84_
+.gate NOR3  a=new_n84_ b=new_n81_ c=new_n78_ O=h1
+.gate NOR2  a=u b=new_n46_ O=new_n86_
+.gate NAND2 a=new_n86_ b=new_n60_ O=new_n87_
+.gate NOT   a=m O=new_n88_
+.gate NOR3  a=n b=new_n88_ c=l O=new_n89_
+.gate NAND3 a=new_n89_ b=c c=new_n46_ O=new_n90_
+.gate NOT   a=q O=new_n91_
+.gate NOR2  a=p b=o O=new_n92_
+.gate NAND3 a=new_n92_ b=u c=new_n91_ O=new_n93_
+.gate OR2   a=new_n93_ b=new_n90_ O=new_n94_
+.gate AND2  a=new_n94_ b=new_n87_ O=new_n95_
+.gate NOT   a=v O=new_n96_
+.gate NOT   a=w O=new_n97_
+.gate NAND3 a=new_n97_ b=new_n96_ c=new_n45_ O=new_n98_
+.gate NOR2  a=new_n98_ b=new_n95_ O=i1
+.gate NOR3  a=new_n87_ b=new_n97_ c=new_n96_ O=new_n100_
+.gate NOT   a=p O=new_n101_
+.gate NOR2  a=new_n101_ b=o O=new_n102_
+.gate NAND3 a=new_n102_ b=new_n96_ c=u O=new_n103_
+.gate NAND2 a=new_n97_ b=q O=new_n104_
+.gate NOR3  a=new_n104_ b=new_n103_ c=new_n90_ O=new_n105_
+.gate NOR2  a=new_n105_ b=new_n100_ O=new_n106_
+.gate NOR2  a=new_n106_ b=a O=j1
+.gate NOR2  a=new_n87_ b=new_n96_ O=new_n108_
+.gate NOR3  a=new_n103_ b=new_n90_ c=q O=new_n109_
+.gate NOR2  a=new_n109_ b=new_n108_ O=new_n110_
+.gate NOR3  a=new_n110_ b=w c=a O=k1
+.gate AND3  a=new_n67_ b=b c=a O=new_n112_
+.gate NOT   a=x O=new_n113_
+.gate NOR2  a=t b=c O=new_n114_
+.gate OR2   a=new_n114_ b=new_n113_ O=new_n115_
+.gate NAND2 a=new_n114_ b=r O=new_n116_
+.gate AND2  a=new_n116_ b=new_n115_ O=new_n117_
+.gate NOR2  a=new_n117_ b=new_n47_ O=new_n118_
+.gate NOR2  a=new_n118_ b=new_n112_ O=new_n119_
+.gate NOR3  a=new_n119_ b=y c=new_n44_ O=l1
+.gate NOR2  a=new_n116_ b=new_n47_ O=m1
+.gate NOR2  a=new_n57_ b=new_n49_ O=n1
+.gate NAND2 a=new_n56_ b=b O=new_n123_
+.gate NAND2 a=new_n123_ b=c O=new_n124_
+.gate NAND2 a=new_n124_ b=a O=new_n125_
+.gate NAND3 a=t b=new_n73_ c=new_n46_ O=new_n126_
+.gate NAND2 a=new_n126_ b=new_n125_ O=o1
+.gate NOR2  a=new_n46_ b=a O=p1
+.end

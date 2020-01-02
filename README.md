@@ -1,7 +1,9 @@
-# Digital Logic HW 4 - State Minimization
+# Digital Logic HW 5 - Logic Simulation
+
+###### tags: `digital_logic`
 
 - Author: **B10630221 高昌廷**
-- Date: 2019/12/10
+- Date: 2020/01/01
 
 ## File contents
 
@@ -12,16 +14,20 @@
 |examples/                | Example pla files used in this document.              |
 |include/                 | Header files for src/ folder                          |
 |src/main.cpp             | Program entry point.                                  |
-|src/digital_logic.cpp    | Basic data structure and functions for digital logic. | 
-|src/smin.cpp | Program entry point for sub program *smin*.                   |
-|src/state_transition_graph.cpp | State transition graph generation and export.                   |
-|src/kiss_file_handler.cpp | KISS file parsing and writing logic.                   |
-|*src/mini.cpp (HW3)*            | Program entry point for sub program *mini*.           |
-|*src/pla_file_handler.cpp (HW3)* | PLA file parsing and writing logic.                   |
-|*src/quine_mccluskey_algorithm.cpp (HW3)* | Quine–McCluskey algorithm implementation.    |
-|*src/petricks_polynomial.cpp (HW3)* | Polynomial implementation for Petrick's method.    |
-|*src/robdd.cpp (HW2)*    | Program entry point for sub program *robdd*.          |
-|*src/binary_decision_diagram.cpp (HW2)*| Binary decision diagram generation and export. |
+|src/digital_logic.cpp    | Basic data structure and functions for digital logic. |
+|src/lsim.cpp                              | Program entry point for sub program *lsim*.     |
+|src/logic_simulator.cpp                   | Logic circit simulator.                         |
+|src/blif_file_handler.cpp                 | BLIF file parsing and writing logic.            |
+|src/sti_file_handler.cpp                  | STI file parsing and writing logic.             |
+|*src/smin.cpp (HW4)*                      | Program entry point for sub program *smin*.     |
+|*src/state_transition_graph.cpp (HW4)*    | State transition graph generation and export.   |
+|*src/kiss_file_handler.cpp (HW4)*         | KISS file parsing and writing logic.            |
+|*src/mini.cpp (HW3)*                      | Program entry point for sub program *mini*.     |
+|*src/pla_file_handler.cpp (HW3)*          | PLA file parsing and writing logic.             |
+|*src/quine_mccluskey_algorithm.cpp (HW3)* | Quine–McCluskey algorithm implementation.       |
+|*src/petricks_polynomial.cpp (HW3)*       | Polynomial implementation for Petrick's method. |
+|*src/robdd.cpp (HW2)*                     | Program entry point for sub program *robdd*.    |
+|*src/binary_decision_diagram.cpp (HW2)*   | Binary decision diagram generation and export.  |
 
 ## How to compile
 
@@ -33,12 +39,6 @@ Note: Command examples below are in Ubuntu 18.04, but the source code should wor
 sudo apt-get install build-essential
 ```
 
-### Install graphviz
-
-```shell=
-sudo apt-get install graphviz
-```
-
 ### Build
 
 ```shell=
@@ -48,66 +48,23 @@ make
 ## How to use
 
 ```
-Usage: smin [-v] [-o] [-m] KISS_IN KISS_OUT DOT_FILE
+Usage: lsim [-v] PROGRAM BLIF_FILE STIMULI_FILE RESPONSE_FILE
 
 Options:
-    -m    Output image as well. ('dot' binary must be installed first)
     -v    Showing all debug information.
-    -o    Output stg.dot as well.
 ```
 
 ### Simple usage
 
 ```shell=
-./smin input.kiss output.kiss output.dot
+./lsim simple.blif simple.sti simple.res
 ```
 
-And convert from dot to png image
-
-```shell=
-dot -T png output.dot > output.png
-```
-
-All the above can also be combine in one line with `-m` option.
-> -m    Output image as well. ('dot' binary must be installed first)
-
-```shell=
-./smin -m input.kiss output.kiss output.dot
-```
-
-The above will output `output.dot` and `output.dot.png`.
-
-### Output original stg.dot
-
-Use `-o` option.
-> -o    Output stg.dot as well.
-
-```shell=
-./smin -o input.kiss output.kiss output.dot
-```
-
-The above will output `output.dot`, `output.kiss` and `output_stg.dot`.
-
-This can be combined with `-m` to output obdd image as well.
-
-```shell=
-./smin -o -m input.kiss output.kiss output.dot
-```
-
-The above will output `output.dot`, `output.kiss`,  `output.dot.png`, `output_stg.dot`, `output_stg.png`.
-
-### Output reduction process
-
-You can output the reduction process with `-v` option.
-
+You can also output topology sorted sequence and simulation states with `-v` option.
 > -v    Showing all debug information.
 
 ```shell=
-./smin -v input.kiss output.kiss output.dot
+./lsim -v simple.blif simple.sti simple.res
 ```
 
-This option can also be combined with `-m` and `-o` options like below:
-
-```shell=
-./smin -o -m -v input.kiss output.kiss output.dot
-```
+The above will output `simple.res`.

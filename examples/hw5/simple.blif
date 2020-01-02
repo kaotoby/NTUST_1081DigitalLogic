@@ -1,0 +1,9 @@
+.model simple
+.inputs a b c d e
+.outputs xor5 xnor5
+.gate XOR2 a=e b=a O=new_n8_
+.gate XOR2 a=new_n8_ b=d O=new_n9_
+.gate XNOR2 a=c b=b O=new_n10_
+.gate XNOR2 a=new_n10_ b=new_n9_ O=xor5
+.gate XOR2 a=new_n10_ b=new_n9_ O=xnor5
+.end
