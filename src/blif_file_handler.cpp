@@ -5,6 +5,7 @@
  * ==========================================
  */
 #include "blif_file_handler.h"
+#include <algorithm>
 #include <map>
 #include <sstream>
 
@@ -127,6 +128,9 @@ unique_ptr<SimpleLogicCircit> BlifFileHandler::read(istream& stream)
             }
             circit->gates.push_back(gate);
         } else if (token == ".end") {
+            sort(circit->gates.begin(), circit->gates.end(), [](const SimpleLogicGate& lhs, const SimpleLogicGate& rhs) {
+                return lhs.O < rhs.O;
+            });
             return move(circit);
         } else {
             throw BlifFileFormatException(lineNumber, token);

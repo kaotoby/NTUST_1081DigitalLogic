@@ -43,12 +43,12 @@ int Lsim::main(int argc, char** argv)
     }
 
     ifstream blifSource(argv[argc - 3]);
-    if (blifSource.bad()) {
+    if (blifSource.fail()) {
         cerr << "File not found: " << argv[argc - 3] << endl;
         exit(-1);
     }
     ifstream stiSource(argv[argc - 2]);
-    if (stiSource.bad()) {
+    if (stiSource.fail()) {
         cerr << "File not found: " << argv[argc - 2] << endl;
         exit(-1);
     }
